@@ -1,0 +1,38 @@
+total_tuition = 0
+student_count = 0
+
+file = open("Students.py", "r")
+
+last_name = file.readline()
+last_name = last_name.strip()
+
+while last_name != "":
+    
+    district = file.readline()
+    district = district.strip()
+
+    credits = file.readline()
+    credits = int(credits)
+
+    if district == "I":
+        cost_per_credit = 250
+    else:
+        cost_per_credit = 500
+
+    tuition = credits * cost_per_credit
+
+    print("Last Name:", last_name)
+    print("Credits:", credits)
+    print("Tuition Owed: $", format(tuition, ".2f"))
+    print()
+
+    total_tuition = total_tuition + tuition
+    student_count = student_count + 1
+
+    last_name = file.readline()
+    last_name = last_name.strip()
+
+file.close()
+
+print("Total Tuition Owed: $", format(total_tuition, ".2f"))
+print("Number of Students:", student_count)
