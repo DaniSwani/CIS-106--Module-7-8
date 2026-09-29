@@ -1,0 +1,37 @@
+total_price = 0
+order_count = 0
+
+file = open("items.py", "r")
+
+item = file.readline()
+item = item.strip()
+
+while item != "":
+    
+    quantity = file.readline()
+    quantity = int(quantity)
+
+    price = file.readline()
+    price = float(price)
+
+    extended_price = quantity * price
+
+    print("Item:", item)
+    print("Quantity:", quantity)
+    print("Price: $", format(price, ".2f"))
+    print("Extended Price: $", format(extended_price, ".2f"))
+    print()
+
+    total_price = total_price + extended_price
+    order_count = order_count + 1
+
+    item = file.readline()
+    item = item.strip()
+
+file.close()
+
+average_order = total_price / order_count
+
+print("Total of all orders: $", format(total_price, ".2f"))
+print("Number of orders:", order_count)
+print("Average order: $", format(average_order, ".2f"))
