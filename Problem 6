@@ -1,0 +1,23 @@
+student_count = 0
+
+answer = input("Do you want to enter student information? ")
+
+while answer == "Yes":
+
+    last_name = input("Enter the student's last name: ")
+
+    exam1 = float(input("Enter the first exam score: "))
+
+    exam2 = float(input("Enter the second exam score: "))
+
+    average = (exam1 + exam2) / 2
+
+    print("Last Name:", last_name)
+    print("Average:", format(average, ".2f"))
+    print()
+
+    student_count = student_count + 1
+
+    answer = input("Do you want to enter another student? ")
+
+print("Number of students:", student_count)
